@@ -66,7 +66,7 @@ interface EmptyStateProps {
 
 export const EmptyState: React.FC<EmptyStateProps> = ({
   title = 'No records found',
-  description = 'There are no active or historic ledger periods matching the parameters.',
+  description = 'There are no active or historic fiscal year periods matching the parameters.',
   actionButton,
 }) => {
   return (

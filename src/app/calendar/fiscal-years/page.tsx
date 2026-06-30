@@ -80,7 +80,7 @@ export default function FiscalYearsPage() {
           <div className="flex items-center gap-1.5 text-xs text-slate-400 dark:text-slate-500 font-bold tracking-wider uppercase font-mono">
             <span>Home</span>
             <span>/</span>
-            <span>General Ledger</span>
+            <span>Fiscal Year Configuration</span>
             <span>/</span>
             <span className="text-slate-700 dark:text-slate-300">Fiscal Years</span>
           </div>

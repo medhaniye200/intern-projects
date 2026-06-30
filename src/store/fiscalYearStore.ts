@@ -63,12 +63,13 @@ export const useFiscalYearStore = create<FiscalYearStore>((set, get) => ({
     set({ loading: true, error: null });
     try {
       const data = await FiscalYearService.getFiscalYears();
+      const items = Array.isArray(data) ? data : [];
       set({ 
-        fiscalYears: data, 
+        fiscalYears: items, 
         loading: false,
         pagination: {
           ...get().pagination,
-          total: data.length
+          total: items.length
         }
       });
     } catch (err: any) {

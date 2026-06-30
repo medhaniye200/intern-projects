@@ -35,7 +35,7 @@ export class FiscalYearService {
           startDate: '2024-07-07', // Hamle 1, 2016
           endDate: '2025-07-07',   // Sene 30, 2017
           status: 'INACTIVE',
-          description: 'Previous fiscal year. Auditor review completed, ledger closed.',
+          description: 'Previous fiscal year. Auditor review completed, fiscal year closed.',
           startDateEth: '01 Hamle 2016',
           endDateEth: '30 Sene 2017'
         },
@@ -62,12 +62,39 @@ export class FiscalYearService {
   }
 
   /**
-   * Fetch all fiscal years. Uses Axios first, falls back to local storage if API is offline.
+   * Checks if a response body is HTML (e.g. SPA fallback returning index.html).
    */
+  private static isHtmlResponse(data: unknown): boolean {
+    if (typeof data === 'string') {
+      const trimmed = data.trimStart();
+      return trimmed.startsWith('<') || trimmed.startsWith('<!doctype');
+    }
+    return false;
+  }
+
   static async getFiscalYears(): Promise<FiscalYear[]> {
     try {
       const response = await apiClient.get<FiscalYear[]>('/fiscal-years');
-      return response.data;
+      const raw = response.data;
+
+      // If the server returned HTML (e.g. Vite SPA fallback), the API endpoint doesn't exist.
+      if (this.isHtmlResponse(raw)) {
+        console.warn('API endpoint not available (received HTML). Falling back to local state storage.');
+        return this.getLocalFiscalYears();
+      }
+
+      if (Array.isArray(raw)) {
+        return raw;
+      }
+      if (raw && typeof raw === 'object') {
+        // Handle wrapped responses (e.g. { data: [...] } or { fiscalYears: [...] })
+        const candidate = raw.data ?? raw.fiscalYears ?? raw.content ?? raw.items ?? raw.results;
+        if (Array.isArray(candidate)) {
+          return candidate;
+        }
+      }
+      console.warn('API returned unexpected shape:', raw);
+      return this.getLocalFiscalYears();
     } catch (err) {
       console.warn('API endpoint offline. Falling back to local state storage for preview.', err);
       return this.getLocalFiscalYears();

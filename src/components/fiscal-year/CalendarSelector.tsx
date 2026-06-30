@@ -26,7 +26,7 @@ export const CalendarSelector: React.FC<CalendarSelectorProps> = ({
           Accounting Standard Calendar Preference
         </h3>
         <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-sm mx-auto">
-          Select the core calendar standard. This determines date formats, period configurations, and ledger reporting periods.
+          Select the core calendar standard. This determines date formats, period configurations, and fiscal year reporting periods.
         </p>
       </div>
 

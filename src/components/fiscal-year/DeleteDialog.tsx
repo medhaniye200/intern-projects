@@ -71,7 +71,7 @@ export const DeleteDialog: React.FC<DeleteDialogProps> = ({
               <div className="w-full bg-slate-50 dark:bg-slate-950/30 border border-slate-100 dark:border-slate-800/60 rounded-xl p-3.5 mt-4 text-left">
                 <div className="flex gap-2 text-xs font-semibold text-slate-600 dark:text-slate-400">
                   <span className="font-bold text-red-600 dark:text-red-400">Warning:</span>
-                  <span>Deleting this fiscal year will break reference chains in future accounting ledgers and journals.</span>
+                  <span>Deleting this fiscal year will break reference chains in future fiscal records and journals.</span>
                 </div>
               </div>
 

@@ -27,7 +27,7 @@ export function useFiscalYears() {
   }, [fetchFiscalYears]);
 
   // Apply searching and filtering client-side
-  const filteredFiscalYears = fiscalYears.filter((fy) => {
+  const filteredFiscalYears = (Array.isArray(fiscalYears) ? fiscalYears : []).filter((fy) => {
     const matchesSearch = fy.name.toLowerCase().includes(filters.search.toLowerCase()) ||
       (fy.description && fy.description.toLowerCase().includes(filters.search.toLowerCase()));
     

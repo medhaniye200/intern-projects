@@ -25,7 +25,7 @@ export const FiscalYearFilters: React.FC = () => {
         {/* Search Input */}
         <div className="md:col-span-6 flex flex-col gap-1.5">
           <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-            Search Ledger name / description
+            Search Fiscal Year name / description
           </label>
           <div className="relative">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />

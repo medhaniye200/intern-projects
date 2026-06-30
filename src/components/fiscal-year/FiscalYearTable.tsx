@@ -65,7 +65,7 @@ export const FiscalYearTable: React.FC<FiscalYearTableProps> = ({
                   onClick={() => handleSort('name')}
                   className="flex items-center gap-1.5 hover:text-slate-700 dark:hover:text-slate-200 transition-colors cursor-pointer"
                 >
-                  Fiscal Ledger Name
+                  Fiscal Year Name
                   <ArrowUpDown className="w-3.5 h-3.5" />
                 </button>
               </th>

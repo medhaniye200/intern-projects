@@ -146,7 +146,7 @@ export const FiscalYearForm: React.FC<FiscalYearFormProps> = ({
             {isEditMode ? 'Modify Fiscal Accounting Year' : 'Open New Fiscal Accounting Year'}
           </h2>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-            Create or edit accounting standard years, ledger boundaries, and base calendar configurations.
+            Create or edit fiscal year details, boundaries, and calendar configurations.
           </p>
         </div>
       </div>
@@ -180,7 +180,7 @@ export const FiscalYearForm: React.FC<FiscalYearFormProps> = ({
               2
             </span>
             <span className={`text-xs font-bold ${step === 2 ? 'text-slate-900 dark:text-slate-100' : 'text-slate-400'}`}>
-              Ledger Specifications
+              Fiscal Year Configuration
             </span>
           </div>
         </div>
@@ -225,7 +225,7 @@ export const FiscalYearForm: React.FC<FiscalYearFormProps> = ({
                   onClick={handleNextStep}
                   className="px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-semibold text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/20 shadow-sm shadow-sky-500/10 transition-all flex items-center gap-1.5 cursor-pointer"
                 >
-                  Configure Ledger
+                  Configure Fiscal Year
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -402,7 +402,7 @@ export const FiscalYearForm: React.FC<FiscalYearFormProps> = ({
                     ) : (
                       <Save className="w-4 h-4" />
                     )}
-                    {isEditMode ? 'Apply Ledger Modifications' : 'Commit Ledger Year'}
+                    {isEditMode ? 'Apply Fiscal Year Modifications' : 'Create Fiscal Year'}
                   </button>
                 </div>
               </div>
